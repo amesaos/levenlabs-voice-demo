@@ -169,49 +169,54 @@ body {
     margin: 0 auto;
 }
 
-/* Widget Container - MUCH LARGER */
-.widget-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 4rem;
-    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-    border-radius: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    border: 1px solid #d1fae5;
-    position: relative;
-    overflow: hidden;
+/* Original Widget Section (Working Configuration) */
+.widget-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 2rem 0;
 }
 
-.widget-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #10b981, #059669);
+.widget-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.widget-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.widget-instruction {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #666;
 }
 
 .widget-wrapper {
-    position: relative;
-    min-height: 500px;
+    margin: 2rem 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 2rem;
+    align-items: center;
 }
 
-/* Make ElevenLabs widget larger - more conservative approach */
-.widget-wrapper elevenlabs-convai {
-    width: 100%;
-    min-width: 400px;
-    height: auto;
-}
-
-/* Alternative scaling approach */
+/* Simple scaling for larger widget */
 @media (min-width: 768px) {
+    .widget-container {
+        max-width: 700px;
+        padding: 4rem;
+    }
+    
     .widget-wrapper elevenlabs-convai {
-        transform: scale(1.3);
+        transform: scale(1.2);
         transform-origin: center;
     }
 }
