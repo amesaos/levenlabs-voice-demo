@@ -63,15 +63,24 @@
                 <p>Haz clic en el widget y comienza una conversación natural con nuestra IA</p>
             </div>
             
-            <!-- ElevenLabs Widget - Original Configuration -->
+            <!-- ElevenLabs Widget - Enhanced Configuration -->
             <main class="widget-section">
                 <div class="widget-container">
                     <h2>¡Prueba ahora!</h2>
                     <p class="widget-instruction">Haz clic en el widget para comenzar tu conversación</p>
                     
                     <!-- ElevenLabs Widget -->
-                    <div class="widget-wrapper">
-                        <elevenlabs-convai agent-id="agent_9501k20qt74xf7att5zbgd96pmej"></elevenlabs-convai>
+                    <div class="widget-wrapper" id="widget-wrapper">
+                        <div class="widget-loading" id="widget-loading">
+                            <div class="spinner"></div>
+                            <p>Cargando widget de voz...</p>
+                            <small>Esto puede tomar unos segundos</small>
+                        </div>
+                        <elevenlabs-convai 
+                            agent-id="agent_9501k20qt74xf7att5zbgd96pmej"
+                            style="display: none;"
+                            id="elevenlabs-widget">
+                        </elevenlabs-convai>
                     </div>
                 </div>
             </main>
@@ -121,7 +130,116 @@
         </div>
     </footer>
 
-    <!-- ElevenLabs Script -->
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <!-- Enhanced ElevenLabs Script with proper state management -->
+    <script>
+        (function() {
+            const loadingElement = document.getElementById('widget-loading');
+            const widgetElement = document.getElementById('elevenlabs-widget');
+            let loadTimeout;
+            
+            // Show loading state initially
+            if (loadingElement) {
+                loadingElement.style.display = 'flex';
+            }
+            
+            // Set timeout for fallback (20 seconds)
+            loadTimeout = setTimeout(() => {
+                console.warn('Widget loading timeout reached');
+                showFallbackMessage();
+            }, 20000);
+            
+            // Load ElevenLabs script
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+            script.async = true;
+            script.type = 'text/javascript';
+            
+            script.onload = function() {
+                console.log('ElevenLabs script loaded successfully');
+                
+                // Wait for widget to initialize
+                let checkAttempts = 0;
+                const checkWidget = setInterval(() => {
+                    checkAttempts++;
+                    const widget = document.getElementById('elevenlabs-widget');
+                    
+                    if (widget && (widget.shadowRoot || widget.children.length > 0 || widget.offsetHeight > 0)) {
+                        // Widget has content, show it
+                        clearInterval(checkWidget);
+                        clearTimeout(loadTimeout);
+                        showWidget();
+                        console.log('ElevenLabs widget initialized successfully');
+                    } else if (checkAttempts > 40) { // 20 seconds
+                        // Timeout reached
+                        clearInterval(checkWidget);
+                        clearTimeout(loadTimeout);
+                        showFallbackMessage();
+                        console.warn('Widget initialization timeout');
+                    }
+                }, 500);
+            };
+            
+            script.onerror = function() {
+                console.error('Failed to load ElevenLabs script');
+                clearTimeout(loadTimeout);
+                showFallbackMessage();
+            };
+            
+            document.head.appendChild(script);
+            
+            function showWidget() {
+                if (loadingElement) {
+                    loadingElement.style.display = 'none';
+                }
+                if (widgetElement) {
+                    widgetElement.style.display = 'block';
+                    widgetElement.setAttribute('data-loaded', 'true');
+                }
+            }
+            
+            function showFallbackMessage() {
+                if (loadingElement) {
+                    loadingElement.innerHTML = `
+                        <div style="
+                            padding: 2rem;
+                            text-align: center;
+                            background: #fef3c7;
+                            border: 2px solid #f59e0b;
+                            border-radius: 16px;
+                            color: #92400e;
+                            max-width: 400px;
+                            margin: 0 auto;
+                        ">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚠️</div>
+                            <h3 style="margin-bottom: 1rem; color: #92400e;">Widget temporalmente no disponible</h3>
+                            <p style="margin-bottom: 1rem; font-size: 0.9rem;">El widget de voz no pudo cargar. Esto puede deberse a:</p>
+                            <ul style="text-align: left; margin: 1rem 0; padding-left: 1.5rem; font-size: 0.85rem;">
+                                <li>Problemas de conectividad</li>
+                                <li>Configuración del navegador</li>
+                                <li>Mantenimiento del servicio</li>
+                            </ul>
+                            <button onclick="location.reload()" style="
+                                padding: 0.75rem 1.5rem;
+                                background: #f59e0b;
+                                color: white;
+                                border: none;
+                                border-radius: 8px;
+                                cursor: pointer;
+                                font-weight: 600;
+                                margin-top: 1rem;
+                                font-size: 0.9rem;
+                            ">
+                                🔄 Recargar Página
+                            </button>
+                        </div>
+                    `;
+                }
+                
+                if (widgetElement) {
+                    widgetElement.style.display = 'none';
+                }
+            }
+        })();
+    </script>
 </body>
 </html>

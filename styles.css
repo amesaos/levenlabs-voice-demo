@@ -237,11 +237,51 @@ body {
     width: 100%;
 }
 
-/* Centered widget with appropriate scaling */
+/* Enhanced widget styling for better integration */
 .widget-wrapper elevenlabs-convai {
     display: block;
     margin: 0 auto;
     text-align: center;
+    width: 100%;
+    max-width: 500px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show widget when loaded */
+.widget-wrapper elevenlabs-convai:not(:empty),
+.widget-wrapper elevenlabs-convai[data-loaded="true"] {
+    opacity: 1;
+}
+
+/* Ensure widget content is properly styled */
+.widget-wrapper elevenlabs-convai * {
+    box-sizing: border-box;
+}
+
+/* Loading state styling */
+.widget-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #6b7280;
+}
+
+.widget-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #059669;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Optimized scaling for all screen sizes - Perfect Centering */
