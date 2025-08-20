@@ -5,35 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo ElevenLabs Voice AI</title>
     <meta name="description" content="Interactúa con nuestro agente de voz AI powered by ElevenLabs">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="hero">
-            <h1>Demo ElevenLabs Voice AI</h1>
-            <p class="subtitle">Experimenta la próxima generación de inteligencia artificial conversacional</p>
-            <p class="description">
-                Habla directamente con nuestro agente de IA usando tecnología de voz avanzada. 
-                Simplemente presiona el botón y comienza a conversar.
-            </p>
-        </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h3>Voice AI Demo</h3>
+            </div>
+            <div class="nav-links">
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#features" class="nav-link">Características</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+            </div>
+        </div>
+    </nav>
 
-        <main class="widget-section">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Experimenta el futuro de la
+                    <span class="highlight">conversación con IA</span>
+                </h1>
+                <p class="hero-description">
+                    Interactúa con nuestro agente de voz inteligente powered by ElevenLabs. 
+                    Tecnología de voz avanzada que entiende y responde de forma natural.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Precisión</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Disponible</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10ms</div>
+                        <div class="stat-label">Latencia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="demo-container">
+            <div class="demo-header">
+                <h2>¡Prueba ahora mismo!</h2>
+                <p>Haz clic en el widget y comienza una conversación natural con nuestra IA</p>
+            </div>
+            
+            <!-- Large ElevenLabs Widget -->
             <div class="widget-container">
-                <h2>¡Prueba ahora!</h2>
-                <p class="widget-instruction">Haz clic en el widget para comenzar tu conversación</p>
-                
-                <!-- ElevenLabs Widget -->
                 <div class="widget-wrapper">
                     <elevenlabs-convai agent-id="agent_9501k20qt74xf7att5zbgd96pmej"></elevenlabs-convai>
                 </div>
             </div>
-        </main>
+        </div>
+    </section>
 
-        <footer class="footer">
-            <p>Powered by <a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a></p>
-        </footer>
-    </div>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="features-container">
+            <div class="features-header">
+                <h2>¿Por qué elegir nuestra tecnología de voz?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Voz Natural</h3>
+                    <p>Conversaciones fluidas y naturales con tecnología de síntesis de voz de última generación.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Respuesta Instantánea</h3>
+                    <p>Procesamiento en tiempo real con latencia ultra baja para experiencias conversacionales fluidas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>IA Avanzada</h3>
+                    <p>Comprensión contextual profunda powered by los mejores modelos de lenguaje disponibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Voice AI Demo</h3>
+                    <p>Powered by ElevenLabs</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#features">Características</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- ElevenLabs Script -->
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
