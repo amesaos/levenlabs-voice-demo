@@ -59,31 +59,25 @@
     <section id="demo" class="demo-section">
         <div class="demo-container">
             <div class="demo-header">
-                <h2>¡Prueba ahora mismo!</h2>
+                <h2>¡Prueba ahora!</h2>
                 <p>Haz clic en el widget y comienza una conversación natural con nuestra IA</p>
             </div>
             
-            <!-- ElevenLabs Widget - Enhanced Configuration -->
-            <main class="widget-section">
-                <div class="widget-container">
-                    <h2>¡Prueba ahora!</h2>
-                    <p class="widget-instruction">Haz clic en el widget para comenzar tu conversación</p>
-                    
-                    <!-- ElevenLabs Widget -->
-                    <div class="widget-wrapper" id="widget-wrapper">
-                        <div class="widget-loading" id="widget-loading">
-                            <div class="spinner"></div>
-                            <p>Cargando widget de voz...</p>
-                            <small>Esto puede tomar unos segundos</small>
-                        </div>
-                        <elevenlabs-convai 
-                            agent-id="agent_9501k20qt74xf7att5zbgd96pmej"
-                            style="display: none;"
-                            id="elevenlabs-widget">
-                        </elevenlabs-convai>
+            <!-- ElevenLabs Widget Container -->
+            <div class="widget-container">
+                <div class="widget-wrapper" id="widget-wrapper">
+                    <div class="widget-loading" id="widget-loading">
+                        <div class="spinner"></div>
+                        <p>Cargando widget de voz...</p>
+                        <small>Esto puede tomar unos segundos</small>
                     </div>
+                    <elevenlabs-convai 
+                        agent-id="agent_9501k20qt74xf7att5zbgd96pmej"
+                        style="display: none;"
+                        id="elevenlabs-widget">
+                    </elevenlabs-convai>
                 </div>
-            </main>
+            </div>
         </div>
     </section>
 
