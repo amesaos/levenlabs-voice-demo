@@ -183,13 +183,13 @@ body {
 .widget-container {
     background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
     backdrop-filter: blur(10px);
-    padding: 4rem 3rem;
-    border-radius: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
     border: 2px solid #d1fae5;
     text-align: center;
-    max-width: 800px;
-    width: 90%;
+    max-width: 650px;
+    width: 85%;
     position: relative;
     overflow: visible;
     margin: 0 auto;
@@ -227,12 +227,12 @@ body {
 }
 
 .widget-wrapper {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 350px;
-    padding: 2rem;
+    min-height: 300px;
+    padding: 1.5rem;
     position: relative;
     width: 100%;
 }
@@ -244,15 +244,37 @@ body {
     text-align: center;
 }
 
-/* Balanced scaling for all screen sizes - Perfect Centering */
+/* Optimized scaling for all screen sizes - Perfect Centering */
 @media (min-width: 768px) {
     .widget-section {
-        min-height: 70vh;
+        min-height: 60vh;
+        padding: 2rem 0;
+    }
+    
+    .widget-container {
+        max-width: 750px;
+        padding: 4rem 3rem;
+    }
+    
+    .widget-wrapper {
+        min-height: 350px;
+        padding: 2.5rem;
+    }
+    
+    .widget-wrapper elevenlabs-convai {
+        transform: scale(1.2);
+        transform-origin: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .widget-section {
+        min-height: 65vh;
         padding: 3rem 0;
     }
     
     .widget-container {
-        max-width: 900px;
+        max-width: 850px;
         padding: 5rem 4rem;
     }
     
@@ -262,29 +284,7 @@ body {
     }
     
     .widget-wrapper elevenlabs-convai {
-        transform: scale(1.4);
-        transform-origin: center;
-    }
-}
-
-@media (min-width: 1200px) {
-    .widget-section {
-        min-height: 75vh;
-        padding: 4rem 0;
-    }
-    
-    .widget-container {
-        max-width: 1000px;
-        padding: 6rem 5rem;
-    }
-    
-    .widget-wrapper {
-        min-height: 450px;
-        padding: 4rem;
-    }
-    
-    .widget-wrapper elevenlabs-convai {
-        transform: scale(1.6);
+        transform: scale(1.35);
         transform-origin: center;
     }
 }
