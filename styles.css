@@ -201,10 +201,19 @@ body {
     padding: 2rem;
 }
 
-/* Override ElevenLabs widget styles to make it larger */
+/* Make ElevenLabs widget larger - more conservative approach */
 .widget-wrapper elevenlabs-convai {
-    transform: scale(1.5);
-    transform-origin: center;
+    width: 100%;
+    min-width: 400px;
+    height: auto;
+}
+
+/* Alternative scaling approach */
+@media (min-width: 768px) {
+    .widget-wrapper elevenlabs-convai {
+        transform: scale(1.3);
+        transform-origin: center;
+    }
 }
 
 /* Features Section */
