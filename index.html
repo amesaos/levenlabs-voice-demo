@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo ElevenLabs Voice AI</title>
+    <meta name="description" content="Interactúa con nuestro agente de voz AI powered by ElevenLabs">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>Demo ElevenLabs Voice AI</h1>
+            <p class="subtitle">Experimenta la próxima generación de inteligencia artificial conversacional</p>
+            <p class="description">
+                Habla directamente con nuestro agente de IA usando tecnología de voz avanzada. 
+                Simplemente presiona el botón y comienza a conversar.
+            </p>
+        </header>
+
+        <main class="widget-section">
+            <div class="widget-container">
+                <h2>¡Prueba ahora!</h2>
+                <p class="widget-instruction">Haz clic en el widget para comenzar tu conversación</p>
+                
+                <!-- ElevenLabs Widget -->
+                <div class="widget-wrapper">
+                    <elevenlabs-convai agent-id="agent_9501k20qt74xf7att5zbgd96pmej"></elevenlabs-convai>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Powered by <a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a></p>
+        </footer>
+    </div>
+
+    <!-- ElevenLabs Script -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+</html>
