@@ -67,6 +67,15 @@
             <div class="widget-container">
                 <div class="widget-wrapper">
                     <elevenlabs-convai agent-id="agent_9501k20qt74xf7att5zbgd96pmej"></elevenlabs-convai>
+                    <!-- Fallback content if widget doesn't load -->
+                    <div id="widget-fallback" style="display: none; text-align: center; padding: 2rem;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🎤</div>
+                        <h3 style="color: #059669; margin-bottom: 1rem;">Widget de Voz Cargando...</h3>
+                        <p style="color: #6b7280;">Si el widget no aparece, verifique su conexión a internet o recargue la página.</p>
+                        <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #059669; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                            Recargar Página
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +124,41 @@
         </div>
     </footer>
 
-    <!-- ElevenLabs Script -->
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <!-- ElevenLabs Script - Load before widget -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" type="text/javascript"></script>
+    
+    <!-- Widget loading detection -->
+    <script>
+        // Check if widget loads properly
+        let widgetCheckInterval;
+        let attempts = 0;
+        
+        function checkWidget() {
+            const widget = document.querySelector('elevenlabs-convai');
+            const fallback = document.getElementById('widget-fallback');
+            attempts++;
+            
+            if (widget && (widget.shadowRoot || widget.children.length > 0)) {
+                // Widget loaded successfully
+                console.log('ElevenLabs widget loaded successfully');
+                if (widgetCheckInterval) clearInterval(widgetCheckInterval);
+                return;
+            }
+            
+            // After 10 seconds (20 attempts), show fallback
+            if (attempts > 20) {
+                console.warn('ElevenLabs widget failed to load, showing fallback');
+                if (fallback) fallback.style.display = 'block';
+                if (widgetCheckInterval) clearInterval(widgetCheckInterval);
+            }
+        }
+        
+        // Start checking after DOM loads
+        window.addEventListener('load', function() {
+            console.log('Page loaded, checking for ElevenLabs widget...');
+            widgetCheckInterval = setInterval(checkWidget, 500);
+            checkWidget(); // Check immediately
+        });
+    </script>
 </body>
 </html>
