@@ -7,7 +7,7 @@
     <meta name="description" content="Interactúa con nuestro agente de voz AI powered by ElevenLabs">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,12 +15,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h3>Voice AI Demo</h3>
+                <div class="logo-icon">🎤</div>
+                <span class="logo-text">VoiceAI</span>
             </div>
             <div class="nav-links">
                 <a href="#demo" class="nav-link">Demo</a>
                 <a href="#features" class="nav-link">Características</a>
-                <a href="#contact" class="nav-link">Contacto</a>
+                <a href="#about" class="nav-link">Acerca de</a>
+                <a href="#demo" class="nav-cta">Probar Ahora</a>
             </div>
         </div>
     </nav>
@@ -29,26 +31,33 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">✨ Powered by ElevenLabs</span>
+                </div>
                 <h1 class="hero-title">
-                    Experimenta el futuro de la
-                    <span class="highlight">conversación con IA</span>
+                    La próxima generación de
+                    <span class="highlight">asistentes de voz</span>
                 </h1>
                 <p class="hero-description">
-                    Interactúa con nuestro agente de voz inteligente powered by ElevenLabs. 
-                    Tecnología de voz avanzada que entiende y responde de forma natural.
+                    Conversa naturalmente con tecnología de IA avanzada. Experimenta respuestas instantáneas 
+                    y conversaciones fluidas que se sienten completamente humanas.
                 </p>
+                <div class="hero-cta">
+                    <a href="#demo" class="cta-primary">Prueba la Demo</a>
+                    <a href="#features" class="cta-secondary">Ver Características</a>
+                </div>
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">99%</div>
-                        <div class="stat-label">Precisión</div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label">Precisión de voz</div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-card">
+                        <div class="stat-number">< 100ms</div>
+                        <div class="stat-label">Tiempo de respuesta</div>
+                    </div>
+                    <div class="stat-card">
                         <div class="stat-number">24/7</div>
-                        <div class="stat-label">Disponible</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10ms</div>
-                        <div class="stat-label">Latencia</div>
+                        <div class="stat-label">Disponibilidad</div>
                     </div>
                 </div>
             </div>
@@ -59,23 +68,67 @@
     <section id="demo" class="demo-section">
         <div class="demo-container">
             <div class="demo-header">
-                <h2>¡Prueba ahora!</h2>
-                <p>Haz clic en el widget y comienza una conversación natural con nuestra IA</p>
+                <span class="section-badge">Demo Interactivo</span>
+                <h2>Experimenta la conversación del futuro</h2>
+                <p>Interactúa directamente con nuestro asistente de IA. Simplemente habla y experimenta 
+                   respuestas naturales e inteligentes en tiempo real.</p>
             </div>
             
-            <!-- ElevenLabs Widget Container -->
-            <div class="widget-container">
-                <div class="widget-wrapper" id="widget-wrapper">
-                    <div class="widget-loading" id="widget-loading">
-                        <div class="spinner"></div>
-                        <p>Cargando widget de voz...</p>
-                        <small>Esto puede tomar unos segundos</small>
+            <!-- Interactive Demo Widget -->
+            <div class="widget-showcase">
+                <div class="widget-intro">
+                    <div class="intro-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Activa el micrófono</h4>
+                                <p>Haz clic en el botón para comenzar</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Habla naturalmente</h4>
+                                <p>Pregunta o conversa como lo harías con una persona</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Escucha la respuesta</h4>
+                                <p>Recibe respuestas inteligentes y naturales</p>
+                            </div>
+                        </div>
                     </div>
-                    <elevenlabs-convai 
-                        agent-id="agent_9501k20qt74xf7att5zbgd96pmej"
-                        style="display: none;"
-                        id="elevenlabs-widget">
-                    </elevenlabs-convai>
+                </div>
+                
+                <div class="widget-container">
+                    <div class="widget-frame">
+                        <div class="frame-header">
+                            <div class="frame-controls">
+                                <span class="control-dot red"></span>
+                                <span class="control-dot yellow"></span>
+                                <span class="control-dot green"></span>
+                            </div>
+                            <span class="frame-title">Asistente de Voz AI</span>
+                        </div>
+                        <div class="widget-wrapper" id="widget-wrapper">
+                            <div class="widget-loading" id="widget-loading">
+                                <div class="loading-animation">
+                                    <div class="wave-bars">
+                                        <span></span><span></span><span></span><span></span>
+                                    </div>
+                                    <p>Inicializando asistente de voz...</p>
+                                    <small>Esto puede tomar unos momentos</small>
+                                </div>
+                            </div>
+                            <elevenlabs-convai 
+                                agent-id="agent_9501k20qt74xf7att5zbgd96pmej"
+                                style="display: none;"
+                                id="elevenlabs-widget">
+                            </elevenlabs-convai>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
