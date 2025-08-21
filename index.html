@@ -112,8 +112,16 @@
                             </div>
                             <span class="frame-title">Asistente de Voz AI</span>
                         </div>
-                        <div class="widget-wrapper-alt" id="widget-wrapper-alt">
-                            <!-- Widget will be injected here -->
+                        <div class="widget-wrapper" id="widget-wrapper">
+                            <div class="loading-message" id="loading-message">
+                                <div class="loading-spinner"></div>
+                                <p>Cargando asistente de voz...</p>
+                            </div>
+                            <elevenlabs-convai 
+                                agent-id="agent_9501k20qt74xf7att5zbgd96pmej" 
+                                id="elevenlabs-widget"
+                                style="display: none;">
+                            </elevenlabs-convai>
                         </div>
                     </div>
                 </div>
@@ -236,129 +244,129 @@
         </div>
     </footer>
 
-    <!-- Alternative ElevenLabs Widget Integration -->
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
+    <!-- ElevenLabs Script and Widget Initialization -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const wrapper = document.getElementById('widget-wrapper-alt');
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🎤 Inicializando widget ElevenLabs...');
+        
+        const wrapper = document.getElementById('widget-wrapper');
+        const widget = document.getElementById('elevenlabs-widget');
+        const loading = document.getElementById('loading-message');
+        
+        if (!wrapper || !widget) {
+            console.error('❌ Elementos del widget no encontrados');
+            return;
+        }
+        
+        // Set initial widget styles
+        widget.style.cssText = `
+            width: 100% !important;
+            height: 400px !important;
+            min-height: 400px !important;
+            max-width: 400px !important;
+            max-height: 400px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            display: block !important;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        `;
+        
+        // Monitor widget initialization
+        let attempts = 0;
+        const maxAttempts = 30;
+        
+        function checkWidget() {
+            attempts++;
+            console.log(`🔍 Verificando widget (intento ${attempts})...`);
             
-            // Create the widget element
-            const widget = document.createElement('elevenlabs-convai');
-            widget.setAttribute('agent-id', 'agent_9501k20qt74xf7att5zbgd96pmej');
-            widget.id = 'elevenlabs-widget-alt';
-            
-            // Set styles to force containment with fixed dimensions
-            widget.style.cssText = `
-                width: 400px !important;
-                height: 400px !important;
-                min-width: 400px !important;
-                min-height: 400px !important;
-                max-width: 400px !important;
-                max-height: 400px !important;
-                position: relative !important;
-                margin: 0 auto !important;
-                padding: 0 !important;
-                display: block !important;
-                box-sizing: border-box !important;
-                overflow: hidden !important;
-                transform: none !important;
-            `;
-            
-            // Inject widget into wrapper
-            wrapper.appendChild(widget);
-            
-            // Monitor for widget initialization
-            let attempts = 0;
-            const maxAttempts = 50;
-            
-            function checkWidget() {
-                attempts++;
-                const widgetElement = document.getElementById('elevenlabs-widget-alt');
+            if (widget.shadowRoot || widget.children.length > 0 || widget.offsetHeight > 50) {
+                console.log('✅ Widget detectado como cargado');
                 
-                if (widgetElement && (widgetElement.shadowRoot || widgetElement.children.length > 0)) {
-                    console.log('✅ Widget loaded successfully');
-                    
-                    // Additional containment enforcement
-                    setTimeout(() => {
-                        widgetElement.style.cssText = `
-                            width: 400px !important;
-                            height: 400px !important;
-                            min-width: 400px !important;
-                            min-height: 400px !important;
-                            max-width: 400px !important;
-                            max-height: 400px !important;
-                            position: relative !important;
-                            margin: 0 auto !important;
-                            padding: 0 !important;
-                            display: block !important;
-                            box-sizing: border-box !important;
-                            overflow: hidden !important;
-                            transform: none !important;
-                        `;
-                    }, 1000);
-                    
-                    return;
-                }
+                // Hide loading, show widget
+                if (loading) loading.style.display = 'none';
+                widget.style.display = 'block';
+                widget.style.opacity = '1';
                 
-                if (attempts < maxAttempts) {
-                    setTimeout(checkWidget, 500);
-                } else {
-                    console.warn('Widget failed to load');
-                    wrapper.innerHTML = `
-                        <div style="
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: 100%;
-                            flex-direction: column;
-                            gap: 1rem;
-                            color: #666;
-                            text-align: center;
-                        ">
-                            <div style="font-size: 3rem;">🎤</div>
-                            <div>Widget en mantenimiento</div>
+                // Force dimensions one more time
+                setTimeout(() => {
+                    widget.style.height = '400px';
+                    widget.style.minHeight = '400px';
+                    console.log('🎯 Dimensiones del widget aplicadas');
+                }, 1000);
+                
+                return;
+            }
+            
+            if (attempts >= maxAttempts) {
+                console.warn('⚠️ Widget no se cargó después de', maxAttempts, 'intentos');
+                if (loading) {
+                    loading.innerHTML = `
+                        <div style="text-align: center; color: #666;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🎤</div>
+                            <p>El asistente de voz está temporalmente en mantenimiento</p>
                             <button onclick="location.reload()" style="
-                                padding: 0.5rem 1rem;
+                                margin-top: 1rem;
+                                padding: 0.75rem 1.5rem;
                                 background: #22c55e;
                                 color: white;
                                 border: none;
-                                border-radius: 0.5rem;
+                                border-radius: 8px;
                                 cursor: pointer;
+                                font-weight: 600;
                             ">Reintentar</button>
                         </div>
                     `;
                 }
+                return;
             }
             
-            setTimeout(checkWidget, 2000);
-        });
+            setTimeout(checkWidget, 1000);
+        }
+        
+        // Start checking after script loads
+        setTimeout(checkWidget, 2000);
+    });
     </script>
 
     <style>
-    .widget-wrapper-alt {
+    .widget-wrapper {
         padding: var(--space-xl);
         min-height: 450px;
+        height: 450px;
         background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
         position: relative;
-        overflow: hidden;
-        contain: layout style paint;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
     
-    .widget-wrapper-alt elevenlabs-convai {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        min-height: 400px !important;
-        height: 400px !important;
-        width: 400px !important;
-        max-width: 400px !important;
-        max-height: 400px !important;
+    .loading-message {
+        text-align: center;
+        color: var(--gray-600);
+    }
+    
+    .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid var(--primary-100);
+        border-top: 4px solid var(--primary-500);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    elevenlabs-convai {
+        border: 2px dashed var(--primary-300) !important;
+        border-radius: 12px !important;
+        background: rgba(34, 197, 94, 0.1) !important;
     }
     </style>
 </body>
