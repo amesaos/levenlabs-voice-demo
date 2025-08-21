@@ -18,9 +18,7 @@
                     <img src="lahaus-logo.png" alt="LaHaus" class="lahaus-logo-nav">
                 </div>
                 <div class="nav-links">
-                    <a href="#" class="nav-link">Conócenos</a>
-                    <a href="#" class="nav-link">Blog</a>
-                    <a href="#demo" class="nav-cta">Ver demo</a>
+                    <!-- Navegación simplificada -->
                 </div>
             </div>
         </nav>
@@ -34,7 +32,6 @@
                 <div class="hero-announcement">
                     <span class="announcement-icon">⭐</span>
                     <span>Constructores: Conecta con cada lead en menos de 5 segundos gracias a LaHaus AI.</span>
-                    <button class="announcement-cta">Descubre cómo funciona</button>
                 </div>
                 
                 <h1 class="hero-title">
@@ -263,33 +260,6 @@
         gap: 2rem;
     }
     
-    .nav-link {
-        color: var(--lahaus-dark-text);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 16px;
-        transition: color 0.2s ease;
-    }
-    
-    .nav-link:hover {
-        color: var(--lahaus-green-primary);
-    }
-    
-    .nav-cta {
-        background: var(--lahaus-green-primary);
-        color: var(--lahaus-white);
-        padding: 12px 24px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 16px;
-        transition: all 0.2s ease;
-    }
-    
-    .nav-cta:hover {
-        background: var(--lahaus-green-light);
-        transform: translateY(-1px);
-    }
     
     /* LaHaus Hero */
     .lahaus-hero {
@@ -320,10 +290,10 @@
         background: rgba(16, 185, 129, 0.15);
         border: 1px solid rgba(16, 185, 129, 0.3);
         border-radius: 50px;
-        padding: 16px 24px;
+        padding: 20px 32px;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 16px;
         margin-bottom: 3rem;
         max-width: fit-content;
     }
@@ -335,26 +305,10 @@
     .hero-announcement span:nth-child(2) {
         color: var(--lahaus-white);
         font-weight: 500;
-        font-size: 14px;
+        font-size: 16px;
         flex: 1;
     }
     
-    .announcement-cta {
-        background: var(--lahaus-green-primary);
-        color: var(--lahaus-white);
-        border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 12px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        font-family: var(--lahaus-font);
-    }
-    
-    .announcement-cta:hover {
-        background: var(--lahaus-green-light);
-    }
     
     .hero-title {
         font-size: 4.5rem;
@@ -546,10 +500,6 @@
         .nav-content {
             padding: 0 16px;
         }
-        
-        .nav-links {
-            gap: 1rem;
-        }
     }
     
     @media (max-width: 768px) {
@@ -576,9 +526,6 @@
             align-items: center;
         }
         
-        .nav-links .nav-link:not(.nav-cta) {
-            display: none;
-        }
     }
     </style>
 </body>
