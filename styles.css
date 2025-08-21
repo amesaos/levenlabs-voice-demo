@@ -459,12 +459,15 @@ body {
 }
 
 .widget-wrapper {
-    padding: var(--space-3xl);
-    min-height: 400px;
+    padding: var(--space-xl);
+    min-height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+    position: relative;
+    overflow: hidden;
+    contain: layout style;
 }
 
 /* Loading Animation */
@@ -513,16 +516,46 @@ body {
     font-size: 0.9rem;
 }
 
-/* Widget Styling */
-.widget-wrapper elevenlabs-convai {
+/* Widget Container Inner - Strict containment */
+.widget-container-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    max-width: 500px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.widget-wrapper elevenlabs-convai[data-loaded="true"] {
+/* Widget Positioning - Contained within frame */
+.widget-container-inner elevenlabs-convai {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 400px !important;
+    max-height: 400px !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    transform: scale(1) !important;
+}
+
+.widget-container-inner elevenlabs-convai[data-loaded="true"] {
     opacity: 1;
+}
+
+/* Ensure widget content fills the frame */
+.widget-wrapper elevenlabs-convai * {
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 
 /* Social Proof Section */

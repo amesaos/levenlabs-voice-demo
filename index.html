@@ -112,21 +112,8 @@
                             </div>
                             <span class="frame-title">Asistente de Voz AI</span>
                         </div>
-                        <div class="widget-wrapper" id="widget-wrapper">
-                            <div class="widget-loading" id="widget-loading">
-                                <div class="loading-animation">
-                                    <div class="wave-bars">
-                                        <span></span><span></span><span></span><span></span>
-                                    </div>
-                                    <p>Inicializando asistente de voz...</p>
-                                    <small>Esto puede tomar unos momentos</small>
-                                </div>
-                            </div>
-                            <elevenlabs-convai 
-                                agent-id="agent_9501k20qt74xf7att5zbgd96pmej"
-                                style="display: none;"
-                                id="elevenlabs-widget">
-                            </elevenlabs-convai>
+                        <div class="widget-wrapper-alt" id="widget-wrapper-alt">
+                            <!-- Widget will be injected here -->
                         </div>
                     </div>
                 </div>
@@ -249,116 +236,118 @@
         </div>
     </footer>
 
-    <!-- Enhanced ElevenLabs Script with proper state management -->
+    <!-- Alternative ElevenLabs Widget Integration -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
     <script>
-        (function() {
-            const loadingElement = document.getElementById('widget-loading');
-            const widgetElement = document.getElementById('elevenlabs-widget');
-            let loadTimeout;
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrapper = document.getElementById('widget-wrapper-alt');
             
-            // Show loading state initially
-            if (loadingElement) {
-                loadingElement.style.display = 'flex';
-            }
+            // Create the widget element
+            const widget = document.createElement('elevenlabs-convai');
+            widget.setAttribute('agent-id', 'agent_9501k20qt74xf7att5zbgd96pmej');
+            widget.id = 'elevenlabs-widget-alt';
             
-            // Set timeout for fallback (20 seconds)
-            loadTimeout = setTimeout(() => {
-                console.warn('Widget loading timeout reached');
-                showFallbackMessage();
-            }, 20000);
+            // Set styles to force containment
+            widget.style.cssText = `
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                position: relative !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+                transform: none !important;
+            `;
             
-            // Load ElevenLabs script
-            const script = document.createElement('script');
-            script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
-            script.async = true;
-            script.type = 'text/javascript';
+            // Inject widget into wrapper
+            wrapper.appendChild(widget);
             
-            script.onload = function() {
-                console.log('ElevenLabs script loaded successfully');
+            // Monitor for widget initialization
+            let attempts = 0;
+            const maxAttempts = 50;
+            
+            function checkWidget() {
+                attempts++;
+                const widgetElement = document.getElementById('elevenlabs-widget-alt');
                 
-                // Wait for widget to initialize
-                let checkAttempts = 0;
-                const checkWidget = setInterval(() => {
-                    checkAttempts++;
-                    const widget = document.getElementById('elevenlabs-widget');
+                if (widgetElement && (widgetElement.shadowRoot || widgetElement.children.length > 0)) {
+                    console.log('✅ Widget loaded successfully');
                     
-                    if (widget && (widget.shadowRoot || widget.children.length > 0 || widget.offsetHeight > 0)) {
-                        // Widget has content, show it
-                        clearInterval(checkWidget);
-                        clearTimeout(loadTimeout);
-                        showWidget();
-                        console.log('ElevenLabs widget initialized successfully');
-                    } else if (checkAttempts > 40) { // 20 seconds
-                        // Timeout reached
-                        clearInterval(checkWidget);
-                        clearTimeout(loadTimeout);
-                        showFallbackMessage();
-                        console.warn('Widget initialization timeout');
-                    }
-                }, 500);
-            };
-            
-            script.onerror = function() {
-                console.error('Failed to load ElevenLabs script');
-                clearTimeout(loadTimeout);
-                showFallbackMessage();
-            };
-            
-            document.head.appendChild(script);
-            
-            function showWidget() {
-                if (loadingElement) {
-                    loadingElement.style.display = 'none';
+                    // Additional containment enforcement
+                    setTimeout(() => {
+                        widgetElement.style.cssText = `
+                            width: 100% !important;
+                            height: 100% !important;
+                            max-width: 100% !important;
+                            max-height: 100% !important;
+                            position: relative !important;
+                            margin: 0 !important;
+                            padding: 0 !important;
+                            display: block !important;
+                            box-sizing: border-box !important;
+                            overflow: hidden !important;
+                            transform: none !important;
+                        `;
+                    }, 1000);
+                    
+                    return;
                 }
-                if (widgetElement) {
-                    widgetElement.style.display = 'block';
-                    widgetElement.setAttribute('data-loaded', 'true');
-                }
-            }
-            
-            function showFallbackMessage() {
-                if (loadingElement) {
-                    loadingElement.innerHTML = `
+                
+                if (attempts < maxAttempts) {
+                    setTimeout(checkWidget, 500);
+                } else {
+                    console.warn('Widget failed to load');
+                    wrapper.innerHTML = `
                         <div style="
-                            padding: 2rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100%;
+                            flex-direction: column;
+                            gap: 1rem;
+                            color: #666;
                             text-align: center;
-                            background: #fef3c7;
-                            border: 2px solid #f59e0b;
-                            border-radius: 16px;
-                            color: #92400e;
-                            max-width: 400px;
-                            margin: 0 auto;
                         ">
-                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚠️</div>
-                            <h3 style="margin-bottom: 1rem; color: #92400e;">Widget temporalmente no disponible</h3>
-                            <p style="margin-bottom: 1rem; font-size: 0.9rem;">El widget de voz no pudo cargar. Esto puede deberse a:</p>
-                            <ul style="text-align: left; margin: 1rem 0; padding-left: 1.5rem; font-size: 0.85rem;">
-                                <li>Problemas de conectividad</li>
-                                <li>Configuración del navegador</li>
-                                <li>Mantenimiento del servicio</li>
-                            </ul>
+                            <div style="font-size: 3rem;">🎤</div>
+                            <div>Widget en mantenimiento</div>
                             <button onclick="location.reload()" style="
-                                padding: 0.75rem 1.5rem;
-                                background: #f59e0b;
+                                padding: 0.5rem 1rem;
+                                background: #22c55e;
                                 color: white;
                                 border: none;
-                                border-radius: 8px;
+                                border-radius: 0.5rem;
                                 cursor: pointer;
-                                font-weight: 600;
-                                margin-top: 1rem;
-                                font-size: 0.9rem;
-                            ">
-                                🔄 Recargar Página
-                            </button>
+                            ">Reintentar</button>
                         </div>
                     `;
                 }
-                
-                if (widgetElement) {
-                    widgetElement.style.display = 'none';
-                }
             }
-        })();
+            
+            setTimeout(checkWidget, 2000);
+        });
     </script>
+
+    <style>
+    .widget-wrapper-alt {
+        padding: var(--space-xl);
+        min-height: 450px;
+        background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+        position: relative;
+        overflow: hidden;
+        contain: layout style paint;
+    }
+    
+    .widget-wrapper-alt elevenlabs-convai {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+    }
+    </style>
 </body>
 </html>
