@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="no-scroll lahaus-style">
+<body class="lahaus-style">
     <!-- LaHaus-style Header -->
     <header class="lahaus-header">
         <nav class="lahaus-nav">
@@ -92,6 +92,29 @@
         <!-- LaHaus-style bottom credit -->
         <div class="hero-footer">
             <span>Una colaboración de <strong>LaHaus</strong> × <strong>ElevenLabs</strong></span>
+        </div>
+    </section>
+
+    <!-- Additional Content to demonstrate scroll -->
+    <section class="demo-info-section">
+        <div class="info-container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🎤</div>
+                    <h3>Conversación Natural</h3>
+                    <p>Habla como lo harías con una persona real. Nuestro asistente entiende el contexto y responde de manera inteligente.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+                    <h3>Respuestas Instantáneas</h3>
+                    <p>Tecnología de vanguardia que procesa y responde en tiempo real, sin demoras perceptibles.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏠</div>
+                    <h3>Especializado en Inmobiliario</h3>
+                    <p>Entrenado específicamente para el sector inmobiliario, con conocimiento profundo del mercado LaHaus.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -243,15 +266,15 @@
     }
     
     html, body {
-        height: 100vh;
-        overflow: hidden;
+        min-height: 100vh;
+        overflow-x: hidden;
         font-family: var(--lahaus-font);
         background: var(--lahaus-green-dark);
         color: var(--lahaus-white);
     }
     
     .no-scroll {
-        overflow: hidden;
+        /* Allow scroll - removed overflow hidden */
     }
     
     /* LaHaus Header */
@@ -299,9 +322,10 @@
     
     /* LaHaus Hero */
     .lahaus-hero {
-        height: 100vh;
+        min-height: 100vh;
         background: var(--lahaus-green-dark);
         padding-top: 80px;
+        padding-bottom: 2rem;
         display: flex;
         flex-direction: column;
     }
@@ -526,6 +550,59 @@
         font-weight: 700;
     }
     
+    /* Demo Info Section */
+    .demo-info-section {
+        background: var(--lahaus-white);
+        padding: 4rem 2rem;
+        color: var(--lahaus-dark-text);
+    }
+    
+    .info-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .info-card {
+        background: var(--lahaus-white);
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+    }
+    
+    .info-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        border-color: var(--lahaus-green-primary);
+    }
+    
+    .info-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+    
+    .info-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--lahaus-green-dark);
+        margin-bottom: 1rem;
+    }
+    
+    .info-card p {
+        color: var(--lahaus-gray);
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+    
     /* Responsive */
     @media (max-width: 1024px) {
         .hero-content-wrapper {
@@ -544,6 +621,10 @@
         
         .nav-content {
             padding: 0 16px;
+        }
+        
+        .info-grid {
+            grid-template-columns: 1fr;
         }
     }
     
@@ -569,6 +650,14 @@
         .widget-instructions {
             flex-direction: column;
             align-items: center;
+        }
+        
+        .demo-info-section {
+            padding: 3rem 1rem;
+        }
+        
+        .info-card {
+            padding: 1.5rem;
         }
         
     }
