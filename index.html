@@ -110,18 +110,27 @@
             return;
         }
         
-        // Set initial widget styles
+        // Set initial widget styles to fill entire area
         widget.style.cssText = `
             width: 100% !important;
-            height: 450px !important;
-            min-height: 450px !important;
-            max-width: 600px !important;
-            max-height: 450px !important;
-            margin: 0 auto !important;
-            position: relative !important;
+            height: 100% !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            max-width: none !important;
+            max-height: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
             display: block !important;
             opacity: 0;
             transition: opacity 0.5s ease;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
         `;
         
         // Monitor widget initialization
@@ -140,13 +149,19 @@
                 widget.style.display = 'block';
                 widget.style.opacity = '1';
                 
-                // Force dimensions one more time
+                // Force full area coverage
                 setTimeout(() => {
-                    widget.style.height = '450px';
-                    widget.style.minHeight = '450px';
                     widget.style.width = '100%';
-                    widget.style.maxWidth = '600px';
-                    console.log('🎯 Dimensiones del widget aplicadas');
+                    widget.style.height = '100%';
+                    widget.style.position = 'absolute';
+                    widget.style.top = '0';
+                    widget.style.left = '0';
+                    widget.style.right = '0';
+                    widget.style.bottom = '0';
+                    widget.style.border = 'none';
+                    widget.style.borderRadius = '0';
+                    widget.style.background = 'transparent';
+                    console.log('🎯 Widget ajustado a área completa');
                 }, 1000);
                 
                 return;
@@ -381,19 +396,25 @@
     }
     
     .widget-wrapper-lahaus {
-        padding: 3rem;
+        padding: 0;
         min-height: 500px;
         height: 500px;
         background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: stretch;
+        justify-content: stretch;
         position: relative;
+        overflow: hidden;
     }
     
     .loading-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
         color: var(--lahaus-green-primary);
+        z-index: 1;
     }
     
     .loading-spinner-lahaus {
@@ -412,9 +433,12 @@
     }
     
     elevenlabs-convai {
-        border: 2px dashed var(--lahaus-green-primary) !important;
-        border-radius: 12px !important;
-        background: rgba(16, 185, 129, 0.05) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        width: 100% !important;
+        height: 100% !important;
+        flex: 1 !important;
     }
     
     /* Widget Instructions */
@@ -516,7 +540,7 @@
         }
         
         .widget-wrapper-lahaus {
-            padding: 2rem;
+            padding: 0;
             min-height: 400px;
             height: 400px;
         }
