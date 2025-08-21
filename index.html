@@ -162,7 +162,7 @@
                     widget.style.borderRadius = '0';
                     widget.style.background = 'transparent';
                     
-                    // If widget has internal size constraints, scale it
+                    // If widget has internal size constraints, scale it up more aggressively
                     const wrapperWidth = wrapper.offsetWidth;
                     const wrapperHeight = wrapper.offsetHeight;
                     const widgetWidth = widget.offsetWidth;
@@ -171,7 +171,7 @@
                     if (widgetWidth > 0 && widgetHeight > 0) {
                         const scaleX = wrapperWidth / widgetWidth;
                         const scaleY = wrapperHeight / widgetHeight;
-                        const scale = Math.max(scaleX, scaleY);
+                        const scale = Math.min(scaleX, scaleY) * 0.95; // Scale to 95% of available space
                         
                         if (scale > 1) {
                             widget.style.transform = `scale(${scale})`;
@@ -376,7 +376,7 @@
     
     .widget-container-lahaus {
         width: 100%;
-        max-width: 700px;
+        max-width: 750px;
     }
     
     .widget-frame-lahaus {
@@ -418,8 +418,8 @@
     
     .widget-wrapper-lahaus {
         padding: 0;
-        min-height: 500px;
-        height: 500px;
+        min-height: 550px;
+        height: 550px;
         background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
         display: flex;
         align-items: stretch;
@@ -562,8 +562,8 @@
         
         .widget-wrapper-lahaus {
             padding: 0;
-            min-height: 400px;
-            height: 400px;
+            min-height: 450px;
+            height: 450px;
         }
         
         .widget-instructions {
