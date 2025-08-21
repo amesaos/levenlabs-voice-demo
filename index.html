@@ -10,99 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon">🎤</div>
-                <span class="logo-text">VoiceAI</span>
-            </div>
-            <div class="nav-links">
-                <a href="#demo" class="nav-link">Demo</a>
-                <a href="#features" class="nav-link">Características</a>
-                <a href="#about" class="nav-link">Acerca de</a>
-                <a href="#demo" class="nav-cta">Probar Ahora</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-text">✨ Powered by ElevenLabs</span>
-                </div>
-                <h1 class="hero-title">
-                    La próxima generación de
-                    <span class="highlight">asistentes de voz</span>
-                </h1>
-                <p class="hero-description">
-                    Conversa naturalmente con tecnología de IA avanzada. Experimenta respuestas instantáneas 
-                    y conversaciones fluidas que se sienten completamente humanas.
-                </p>
-                <div class="hero-cta">
-                    <a href="#demo" class="cta-primary">Prueba la Demo</a>
-                    <a href="#features" class="cta-secondary">Ver Características</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">99.8%</div>
-                        <div class="stat-label">Precisión de voz</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">< 100ms</div>
-                        <div class="stat-label">Tiempo de respuesta</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Disponibilidad</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section id="demo" class="demo-section">
+<body class="no-scroll">
+    <!-- Demo Section - Full Height -->
+    <section class="demo-section-fullscreen">
         <div class="demo-container">
-            <div class="demo-header">
-                <span class="section-badge">Demo Interactivo</span>
-                <h2>Experimenta la conversación del futuro</h2>
-                <p>Interactúa directamente con nuestro asistente de IA. Simplemente habla y experimenta 
-                   respuestas naturales e inteligentes en tiempo real.</p>
+            <div class="demo-header-compact">
+                <div class="brand-minimal">
+                    <div class="logo-icon">🎤</div>
+                    <span class="brand-text">ElevenLabs Voice AI</span>
+                </div>
+                <h1>Experimenta la conversación del futuro</h1>
+                <p>Interactúa directamente con nuestro asistente de IA. Simplemente habla y experimenta respuestas naturales e inteligentes.</p>
             </div>
             
             <!-- Interactive Demo Widget -->
-            <div class="widget-showcase">
-                <div class="widget-intro">
-                    <div class="intro-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Activa el micrófono</h4>
-                                <p>Haz clic en el botón para comenzar</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Habla naturalmente</h4>
-                                <p>Pregunta o conversa como lo harías con una persona</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Escucha la respuesta</h4>
-                                <p>Recibe respuestas inteligentes y naturales</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="widget-container">
+            <div class="widget-showcase-centered">
+                <div class="widget-container-main">
                     <div class="widget-frame">
                         <div class="frame-header">
                             <div class="frame-controls">
@@ -125,124 +48,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof Section -->
-    <section class="social-proof-section">
-        <div class="social-proof-container">
-            <div class="social-proof-header">
-                <h2>Confiado por empresas líderes</h2>
-                <p>Miles de organizaciones ya están usando nuestra tecnología de voz AI</p>
-            </div>
-            
-            <div class="logos-grid">
-                <div class="logo-item">
-                    <div class="logo-placeholder">TechCorp</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">StartupX</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">InnovateCo</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">FutureAI</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">VoiceTech</div>
+                
+                <div class="instructions-side">
+                    <div class="instruction-card">
+                        <div class="instruction-number">1</div>
+                        <h3>Activa el micrófono</h3>
+                        <p>Haz clic en el botón verde para comenzar</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-number">2</div>
+                        <h3>Habla naturalmente</h3>
+                        <p>Conversa como lo harías con una persona</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-number">3</div>
+                        <h3>Escucha la respuesta</h3>
+                        <p>Recibe respuestas inteligentes al instante</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">★★★★★</div>
-                        <p>"La integración fue perfecta y nuestros clientes aman la experiencia de voz natural. Ha mejorado significativamente nuestro servicio al cliente."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💼</div>
-                        <div class="author-info">
-                            <div class="author-name">Carlos Mendoza</div>
-                            <div class="author-title">CEO, TechSolutions</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">★★★★★</div>
-                        <p>"Implementar esta tecnología de voz redujo nuestros costos de soporte en un 40% mientras mejoraba la satisfacción del cliente."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👩‍💻</div>
-                        <div class="author-info">
-                            <div class="author-name">Ana García</div>
-                            <div class="author-title">CTO, InnovateLab</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">★★★★★</div>
-                        <p>"La calidad de las conversaciones es impresionante. Nuestros usuarios no pueden distinguir si hablan con IA o con humanos."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍🚀</div>
-                        <div class="author-info">
-                            <div class="author-name">Miguel Torres</div>
-                            <div class="author-title">Fundador, VoiceStart</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="powered-by">
+                <span>Powered by <strong>ElevenLabs</strong> • Conversational AI</span>
             </div>
         </div>
     </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features-section">
-        <div class="features-container">
-            <div class="features-header">
-                <h2>¿Por qué elegir nuestra tecnología de voz?</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎤</div>
-                    <h3>Voz Natural</h3>
-                    <p>Conversaciones fluidas y naturales con tecnología de síntesis de voz de última generación.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Respuesta Instantánea</h3>
-                    <p>Procesamiento en tiempo real con latencia ultra baja para experiencias conversacionales fluidas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>IA Avanzada</h3>
-                    <p>Comprensión contextual profunda powered by los mejores modelos de lenguaje disponibles.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Voice AI Demo</h3>
-                    <p>Powered by ElevenLabs</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a>
-                    <a href="#demo">Demo</a>
-                    <a href="#features">Características</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- ElevenLabs Script and Widget Initialization -->
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed"></script>
@@ -305,7 +135,7 @@
                     loading.innerHTML = `
                         <div style="text-align: center; color: #666;">
                             <div style="font-size: 3rem; margin-bottom: 1rem;">🎤</div>
-                            <p>El asistente de voz está temporalmente en mantenimiento</p>
+                            <p>El asistente está iniciando...</p>
                             <button onclick="location.reload()" style="
                                 margin-top: 1rem;
                                 padding: 0.75rem 1.5rem;
@@ -331,11 +161,152 @@
     </script>
 
     <style>
+    /* Reset and Base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        height: 100vh;
+        overflow: hidden;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f0fdf4 100%);
+    }
+    
+    .no-scroll {
+        overflow: hidden;
+    }
+    
+    /* Demo Section - Full Screen */
+    .demo-section-fullscreen {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        position: relative;
+    }
+    
+    .demo-container {
+        max-width: 1200px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3rem;
+    }
+    
+    /* Header Compact */
+    .demo-header-compact {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .brand-minimal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+    
+    .logo-icon {
+        font-size: 2rem;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        padding: 0.75rem;
+        border-radius: 12px;
+        filter: drop-shadow(0 4px 12px rgba(34, 197, 94, 0.3));
+    }
+    
+    .brand-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1f2937;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .demo-header-compact h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #1f2937;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+    
+    .demo-header-compact p {
+        font-size: 1.25rem;
+        color: #6b7280;
+        line-height: 1.7;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Widget Showcase Centered */
+    .widget-showcase-centered {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4rem;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .widget-container-main {
+        justify-self: center;
+    }
+    
+    .widget-frame {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        border: 1px solid #e5e7eb;
+        overflow: hidden;
+        max-width: 500px;
+    }
+    
+    .frame-header {
+        background: #f3f4f6;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .frame-controls {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .control-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    
+    .control-dot.red { background: #ef4444; }
+    .control-dot.yellow { background: #f59e0b; }
+    .control-dot.green { background: #22c55e; }
+    
+    .frame-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+    }
+    
     .widget-wrapper {
-        padding: var(--space-xl);
+        padding: 2rem;
         min-height: 450px;
         height: 450px;
-        background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+        background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
         position: relative;
         display: flex;
         align-items: center;
@@ -345,14 +316,14 @@
     
     .loading-message {
         text-align: center;
-        color: var(--gray-600);
+        color: #6b7280;
     }
     
     .loading-spinner {
         width: 40px;
         height: 40px;
-        border: 4px solid var(--primary-100);
-        border-top: 4px solid var(--primary-500);
+        border: 4px solid #dcfce7;
+        border-top: 4px solid #22c55e;
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin: 0 auto 1rem;
@@ -364,9 +335,132 @@
     }
     
     elevenlabs-convai {
-        border: 2px dashed var(--primary-300) !important;
+        border: 2px dashed #22c55e !important;
         border-radius: 12px !important;
-        background: rgba(34, 197, 94, 0.1) !important;
+        background: rgba(34, 197, 94, 0.05) !important;
+    }
+    
+    /* Instructions Side */
+    .instructions-side {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 300px;
+    }
+    
+    .instruction-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+        transition: all 0.2s ease;
+    }
+    
+    .instruction-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .instruction-number {
+        background: #22c55e;
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .instruction-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+    }
+    
+    .instruction-card p {
+        color: #6b7280;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Powered By */
+    .powered-by {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    .powered-by span {
+        color: #9ca3af;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .powered-by strong {
+        color: #22c55e;
+        font-weight: 700;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .widget-showcase-centered {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        .instructions-side {
+            max-width: none;
+            grid-template-columns: repeat(3, 1fr);
+            display: grid;
+        }
+        
+        .demo-header-compact h1 {
+            font-size: 2.5rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .demo-section-fullscreen {
+            padding: 1rem;
+        }
+        
+        .demo-container {
+            gap: 2rem;
+        }
+        
+        .demo-header-compact h1 {
+            font-size: 2rem;
+        }
+        
+        .demo-header-compact p {
+            font-size: 1.1rem;
+        }
+        
+        .instructions-side {
+            grid-template-columns: 1fr;
+        }
+        
+        .widget-wrapper {
+            padding: 1rem;
+            min-height: 350px;
+            height: 350px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .widget-frame {
+            max-width: none;
+        }
+        
+        .widget-wrapper {
+            min-height: 300px;
+            height: 300px;
+        }
     }
     </style>
 </body>
