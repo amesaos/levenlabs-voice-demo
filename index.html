@@ -149,7 +149,7 @@
                 widget.style.display = 'block';
                 widget.style.opacity = '1';
                 
-                // Force full area coverage
+                // Force full area coverage with scaling if needed
                 setTimeout(() => {
                     widget.style.width = '100%';
                     widget.style.height = '100%';
@@ -161,7 +161,28 @@
                     widget.style.border = 'none';
                     widget.style.borderRadius = '0';
                     widget.style.background = 'transparent';
-                    console.log('🎯 Widget ajustado a área completa');
+                    
+                    // If widget has internal size constraints, scale it
+                    const wrapperWidth = wrapper.offsetWidth;
+                    const wrapperHeight = wrapper.offsetHeight;
+                    const widgetWidth = widget.offsetWidth;
+                    const widgetHeight = widget.offsetHeight;
+                    
+                    if (widgetWidth > 0 && widgetHeight > 0) {
+                        const scaleX = wrapperWidth / widgetWidth;
+                        const scaleY = wrapperHeight / widgetHeight;
+                        const scale = Math.max(scaleX, scaleY);
+                        
+                        if (scale > 1) {
+                            widget.style.transform = `scale(${scale})`;
+                            widget.style.transformOrigin = 'center center';
+                        }
+                    }
+                    
+                    console.log('🎯 Widget ajustado a área completa con scaling:', {
+                        wrapperSize: `${wrapperWidth}x${wrapperHeight}`,
+                        widgetSize: `${widgetWidth}x${widgetHeight}`
+                    });
                 }, 1000);
                 
                 return;
