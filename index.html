@@ -92,10 +92,10 @@
         // Set initial widget styles
         widget.style.cssText = `
             width: 100% !important;
-            height: 400px !important;
-            min-height: 400px !important;
-            max-width: 400px !important;
-            max-height: 400px !important;
+            height: 450px !important;
+            min-height: 450px !important;
+            max-width: 500px !important;
+            max-height: 450px !important;
             margin: 0 auto !important;
             position: relative !important;
             display: block !important;
@@ -121,8 +121,10 @@
                 
                 // Force dimensions one more time
                 setTimeout(() => {
-                    widget.style.height = '400px';
-                    widget.style.minHeight = '400px';
+                    widget.style.height = '450px';
+                    widget.style.minHeight = '450px';
+                    widget.style.width = '100%';
+                    widget.style.maxWidth = '500px';
                     console.log('🎯 Dimensiones del widget aplicadas');
                 }, 1000);
                 
@@ -269,7 +271,8 @@
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         border: 1px solid #e5e7eb;
         overflow: hidden;
-        max-width: 500px;
+        max-width: 600px;
+        width: 600px;
     }
     
     .frame-header {
@@ -303,9 +306,9 @@
     }
     
     .widget-wrapper {
-        padding: 2rem;
-        min-height: 450px;
-        height: 450px;
+        padding: 3rem;
+        min-height: 500px;
+        height: 500px;
         background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
         position: relative;
         display: flex;
@@ -446,9 +449,14 @@
         }
         
         .widget-wrapper {
-            padding: 1rem;
-            min-height: 350px;
-            height: 350px;
+            padding: 2rem;
+            min-height: 400px;
+            height: 400px;
+        }
+        
+        .widget-frame {
+            width: 100%;
+            max-width: 100%;
         }
     }
     
