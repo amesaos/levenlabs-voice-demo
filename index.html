@@ -3,32 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo ElevenLabs Voice AI</title>
+    <title>Demo ElevenLabs Voice AI - LaHaus</title>
     <meta name="description" content="Interactúa con nuestro agente de voz AI powered by ElevenLabs">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="no-scroll">
-    <!-- Demo Section - Full Height -->
-    <section class="demo-section-fullscreen">
-        <div class="demo-container">
-            <div class="demo-header-compact">
-                <div class="brand-minimal">
-                    <img src="lahaus-logo.png" alt="LaHaus" class="lahaus-logo">
-                    <span class="brand-divider">×</span>
-                    <span class="brand-text">ElevenLabs Voice AI</span>
+<body class="no-scroll lahaus-style">
+    <!-- LaHaus-style Header -->
+    <header class="lahaus-header">
+        <nav class="lahaus-nav">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="lahaus-logo.png" alt="LaHaus" class="lahaus-logo-nav">
                 </div>
-                <h1>Experimenta la conversación del futuro</h1>
-                <p>Interactúa directamente con nuestro asistente de IA. Simplemente habla y experimenta respuestas naturales e inteligentes.</p>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Conócenos</a>
+                    <a href="#" class="nav-link">Blog</a>
+                    <a href="#demo" class="nav-cta">Ver demo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- LaHaus-style Hero with Widget -->
+    <section class="lahaus-hero">
+        <div class="hero-content-wrapper">
+            <!-- Hero Text -->
+            <div class="hero-text-section">
+                <div class="hero-announcement">
+                    <span class="announcement-icon">⭐</span>
+                    <span>Constructores: Conecta con cada lead en menos de 5 segundos gracias a LaHaus AI.</span>
+                    <button class="announcement-cta">Descubre cómo funciona</button>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">Conversar</span>
+                    <span class="title-line">para vender</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    La forma más inteligente de conectar con leads inmobiliarios, 
+                    con la experiencia de voz más avanzada.
+                </p>
             </div>
             
-            <!-- Interactive Demo Widget -->
-            <div class="widget-showcase-centered">
-                <div class="widget-container-main">
-                    <div class="widget-frame">
-                        <div class="frame-header">
+            <!-- Widget Section -->
+            <div class="widget-section">
+                <div class="widget-container-lahaus">
+                    <div class="widget-frame-lahaus">
+                        <div class="frame-header-lahaus">
                             <div class="frame-controls">
                                 <span class="control-dot red"></span>
                                 <span class="control-dot yellow"></span>
@@ -36,9 +60,9 @@
                             </div>
                             <span class="frame-title">Asistente de Voz AI</span>
                         </div>
-                        <div class="widget-wrapper" id="widget-wrapper">
+                        <div class="widget-wrapper-lahaus" id="widget-wrapper">
                             <div class="loading-message" id="loading-message">
-                                <div class="loading-spinner"></div>
+                                <div class="loading-spinner-lahaus"></div>
                                 <p>Cargando asistente de voz...</p>
                             </div>
                             <elevenlabs-convai 
@@ -48,30 +72,29 @@
                             </elevenlabs-convai>
                         </div>
                     </div>
-                </div>
-                
-                <div class="instructions-side">
-                    <div class="instruction-card">
-                        <div class="instruction-number">1</div>
-                        <h3>Activa el micrófono</h3>
-                        <p>Haz clic en el botón verde para comenzar</p>
-                    </div>
-                    <div class="instruction-card">
-                        <div class="instruction-number">2</div>
-                        <h3>Habla naturalmente</h3>
-                        <p>Conversa como lo harías con una persona</p>
-                    </div>
-                    <div class="instruction-card">
-                        <div class="instruction-number">3</div>
-                        <h3>Escucha la respuesta</h3>
-                        <p>Recibe respuestas inteligentes al instante</p>
+                    
+                    <!-- Instructions -->
+                    <div class="widget-instructions">
+                        <div class="instruction-item">
+                            <div class="instruction-number">1</div>
+                            <span>Activa el micrófono</span>
+                        </div>
+                        <div class="instruction-item">
+                            <div class="instruction-number">2</div>
+                            <span>Habla naturalmente</span>
+                        </div>
+                        <div class="instruction-item">
+                            <div class="instruction-number">3</div>
+                            <span>Escucha la respuesta</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="powered-by">
-                <span>Una colaboración de <strong>LaHaus</strong> × <strong>ElevenLabs</strong></span>
-            </div>
+        </div>
+        
+        <!-- LaHaus-style bottom credit -->
+        <div class="hero-footer">
+            <span>Una colaboración de <strong>LaHaus</strong> × <strong>ElevenLabs</strong></span>
         </div>
     </section>
 
@@ -136,18 +159,19 @@
                 console.warn('⚠️ Widget no se cargó después de', maxAttempts, 'intentos');
                 if (loading) {
                     loading.innerHTML = `
-                        <div style="text-align: center; color: #666;">
+                        <div style="text-align: center; color: #10b981;">
                             <div style="font-size: 3rem; margin-bottom: 1rem;">🎤</div>
                             <p>El asistente está iniciando...</p>
                             <button onclick="location.reload()" style="
                                 margin-top: 1rem;
                                 padding: 0.75rem 1.5rem;
-                                background: #22c55e;
+                                background: #10b981;
                                 color: white;
                                 border: none;
-                                border-radius: 8px;
+                                border-radius: 25px;
                                 cursor: pointer;
                                 font-weight: 600;
+                                font-family: 'Wix Madefor Display', sans-serif;
                             ">Reintentar</button>
                         </div>
                     `;
@@ -164,129 +188,221 @@
     </script>
 
     <style>
-    /* Reset and Base */
+    /* LaHaus-inspired Design System */
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
     
+    :root {
+        /* LaHaus Colors */
+        --lahaus-green-dark: #0f5d3b;
+        --lahaus-green-primary: #10b981;
+        --lahaus-green-light: #34d399;
+        --lahaus-yellow: #e6fa41;
+        --lahaus-white: #ffffff;
+        --lahaus-gray: #6b7280;
+        --lahaus-dark-text: #1f2937;
+        
+        /* LaHaus Typography */
+        --lahaus-font: 'Wix Madefor Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
     html, body {
         height: 100vh;
         overflow: hidden;
-        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f0fdf4 100%);
+        font-family: var(--lahaus-font);
+        background: var(--lahaus-green-dark);
+        color: var(--lahaus-white);
     }
     
     .no-scroll {
         overflow: hidden;
     }
     
-    /* Demo Section - Full Screen */
-    .demo-section-fullscreen {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        position: relative;
+    /* LaHaus Header */
+    .lahaus-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--lahaus-white);
+        height: 80px;
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     
-    .demo-container {
-        max-width: 1200px;
-        width: 100%;
+    .lahaus-nav {
+        height: 100%;
+    }
+    
+    .nav-content {
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 0 24px;
         height: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 3rem;
+        align-items: center;
+        justify-content: space-between;
     }
     
-    /* Header Compact */
-    .demo-header-compact {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    .brand-minimal {
+    .nav-logo {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
     }
     
-    .lahaus-logo {
-        height: 40px;
+    .lahaus-logo-nav {
+        height: 32px;
         width: auto;
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
     }
     
-    .brand-divider {
-        font-size: 1.5rem;
-        color: #9ca3af;
-        font-weight: 300;
-    }
-    
-    .brand-text {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #1f2937;
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    .demo-header-compact h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        color: #1f2937;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-    }
-    
-    .demo-header-compact p {
-        font-size: 1.25rem;
-        color: #6b7280;
-        line-height: 1.7;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    
-    /* Widget Showcase Centered */
-    .widget-showcase-centered {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 4rem;
+    .nav-links {
+        display: flex;
         align-items: center;
-        max-width: 1000px;
+        gap: 2rem;
+    }
+    
+    .nav-link {
+        color: var(--lahaus-dark-text);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: color 0.2s ease;
+    }
+    
+    .nav-link:hover {
+        color: var(--lahaus-green-primary);
+    }
+    
+    .nav-cta {
+        background: var(--lahaus-green-primary);
+        color: var(--lahaus-white);
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.2s ease;
+    }
+    
+    .nav-cta:hover {
+        background: var(--lahaus-green-light);
+        transform: translateY(-1px);
+    }
+    
+    /* LaHaus Hero */
+    .lahaus-hero {
+        height: 100vh;
+        background: var(--lahaus-green-dark);
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-content-wrapper {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        max-width: 1400px;
         margin: 0 auto;
+        padding: 4rem 2rem;
+        align-items: center;
     }
     
-    .widget-container-main {
-        justify-self: center;
+    /* Hero Text Section */
+    .hero-text-section {
+        padding-right: 2rem;
     }
     
-    .widget-frame {
-        background: white;
+    .hero-announcement {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 50px;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 3rem;
+        max-width: fit-content;
+    }
+    
+    .announcement-icon {
+        font-size: 18px;
+    }
+    
+    .hero-announcement span:nth-child(2) {
+        color: var(--lahaus-white);
+        font-weight: 500;
+        font-size: 14px;
+        flex: 1;
+    }
+    
+    .announcement-cta {
+        background: var(--lahaus-green-primary);
+        color: var(--lahaus-white);
+        border: none;
+        padding: 8px 16px;
         border-radius: 20px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        border: 1px solid #e5e7eb;
-        overflow: hidden;
-        max-width: 700px;
-        width: 700px;
+        font-weight: 600;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: var(--lahaus-font);
     }
     
-    .frame-header {
-        background: #f3f4f6;
+    .announcement-cta:hover {
+        background: var(--lahaus-green-light);
+    }
+    
+    .hero-title {
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 0.9;
+        margin-bottom: 2rem;
+        color: var(--lahaus-yellow);
+    }
+    
+    .title-line {
+        display: block;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--lahaus-white);
+        line-height: 1.4;
+        font-weight: 400;
+        max-width: 500px;
+    }
+    
+    /* Widget Section */
+    .widget-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .widget-container-lahaus {
+        width: 100%;
+        max-width: 700px;
+    }
+    
+    .widget-frame-lahaus {
+        background: var(--lahaus-white);
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+    }
+    
+    .frame-header-lahaus {
+        background: #f8f9fa;
         padding: 1rem 1.5rem;
         display: flex;
         align-items: center;
         gap: 1rem;
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e9ecef;
     }
     
     .frame-controls {
@@ -302,36 +418,35 @@
     
     .control-dot.red { background: #ef4444; }
     .control-dot.yellow { background: #f59e0b; }
-    .control-dot.green { background: #22c55e; }
+    .control-dot.green { background: var(--lahaus-green-primary); }
     
     .frame-title {
-        font-size: 0.9rem;
+        font-size: 14px;
         font-weight: 600;
-        color: #374151;
+        color: var(--lahaus-dark-text);
     }
     
-    .widget-wrapper {
+    .widget-wrapper-lahaus {
         padding: 3rem;
         min-height: 500px;
         height: 500px;
         background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
-        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
+        position: relative;
     }
     
     .loading-message {
         text-align: center;
-        color: #6b7280;
+        color: var(--lahaus-green-primary);
     }
     
-    .loading-spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px solid #dcfce7;
-        border-top: 4px solid #22c55e;
+    .loading-spinner-lahaus {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #e0f2fe;
+        border-top: 4px solid var(--lahaus-green-primary);
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin: 0 auto 1rem;
@@ -343,143 +458,126 @@
     }
     
     elevenlabs-convai {
-        border: 2px dashed #22c55e !important;
+        border: 2px dashed var(--lahaus-green-primary) !important;
         border-radius: 12px !important;
-        background: rgba(34, 197, 94, 0.05) !important;
+        background: rgba(16, 185, 129, 0.05) !important;
     }
     
-    /* Instructions Side */
-    .instructions-side {
+    /* Widget Instructions */
+    .widget-instructions {
         display: flex;
-        flex-direction: column;
         gap: 1.5rem;
-        max-width: 300px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
     }
     
-    .instruction-card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e5e7eb;
-        transition: all 0.2s ease;
-    }
-    
-    .instruction-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    .instruction-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem 1.5rem;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .instruction-number {
-        background: #22c55e;
-        color: white;
-        width: 2rem;
-        height: 2rem;
+        background: var(--lahaus-yellow);
+        color: var(--lahaus-green-dark);
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 700;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
+        font-size: 14px;
+        flex-shrink: 0;
     }
     
-    .instruction-card h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #1f2937;
-        margin-bottom: 0.5rem;
-    }
-    
-    .instruction-card p {
-        color: #6b7280;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-    
-    /* Powered By */
-    .powered-by {
-        text-align: center;
-        margin-top: 2rem;
-    }
-    
-    .powered-by span {
-        color: #9ca3af;
-        font-size: 0.9rem;
+    .instruction-item span {
+        color: var(--lahaus-white);
         font-weight: 500;
+        font-size: 14px;
     }
     
-    .powered-by strong {
+    /* Hero Footer */
+    .hero-footer {
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-footer span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        font-weight: 400;
+    }
+    
+    .hero-footer strong:first-of-type {
+        color: var(--lahaus-yellow);
         font-weight: 700;
     }
     
-    .powered-by strong:first-of-type {
-        color: #059669;
-    }
-    
-    .powered-by strong:last-of-type {
-        color: #22c55e;
+    .hero-footer strong:last-of-type {
+        color: var(--lahaus-green-light);
+        font-weight: 700;
     }
     
     /* Responsive */
     @media (max-width: 1024px) {
-        .widget-showcase-centered {
+        .hero-content-wrapper {
             grid-template-columns: 1fr;
             gap: 3rem;
+            text-align: center;
         }
         
-        .instructions-side {
-            max-width: none;
-            grid-template-columns: repeat(3, 1fr);
-            display: grid;
+        .hero-text-section {
+            padding-right: 0;
         }
         
-        .demo-header-compact h1 {
-            font-size: 2.5rem;
+        .hero-title {
+            font-size: 3.5rem;
+        }
+        
+        .nav-content {
+            padding: 0 16px;
+        }
+        
+        .nav-links {
+            gap: 1rem;
         }
     }
     
     @media (max-width: 768px) {
-        .demo-section-fullscreen {
-            padding: 1rem;
+        .hero-title {
+            font-size: 2.5rem;
         }
         
-        .demo-container {
-            gap: 2rem;
+        .hero-subtitle {
+            font-size: 1.25rem;
         }
         
-        .demo-header-compact h1 {
-            font-size: 2rem;
+        .hero-content-wrapper {
+            padding: 2rem 1rem;
         }
         
-        .demo-header-compact p {
-            font-size: 1.1rem;
-        }
-        
-        .instructions-side {
-            grid-template-columns: 1fr;
-        }
-        
-        .widget-wrapper {
+        .widget-wrapper-lahaus {
             padding: 2rem;
             min-height: 400px;
             height: 400px;
         }
         
-        .widget-frame {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .widget-frame {
-            max-width: none;
+        .widget-instructions {
+            flex-direction: column;
+            align-items: center;
         }
         
-        .widget-wrapper {
-            min-height: 300px;
-            height: 300px;
+        .nav-links .nav-link:not(.nav-cta) {
+            display: none;
         }
     }
     </style>
