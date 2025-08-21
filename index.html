@@ -247,14 +247,16 @@
             widget.setAttribute('agent-id', 'agent_9501k20qt74xf7att5zbgd96pmej');
             widget.id = 'elevenlabs-widget-alt';
             
-            // Set styles to force containment
+            // Set styles to force containment with fixed dimensions
             widget.style.cssText = `
-                width: 100% !important;
-                height: 100% !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
+                width: 400px !important;
+                height: 400px !important;
+                min-width: 400px !important;
+                min-height: 400px !important;
+                max-width: 400px !important;
+                max-height: 400px !important;
                 position: relative !important;
-                margin: 0 !important;
+                margin: 0 auto !important;
                 padding: 0 !important;
                 display: block !important;
                 box-sizing: border-box !important;
@@ -279,12 +281,14 @@
                     // Additional containment enforcement
                     setTimeout(() => {
                         widgetElement.style.cssText = `
-                            width: 100% !important;
-                            height: 100% !important;
-                            max-width: 100% !important;
-                            max-height: 100% !important;
+                            width: 400px !important;
+                            height: 400px !important;
+                            min-width: 400px !important;
+                            min-height: 400px !important;
+                            max-width: 400px !important;
+                            max-height: 400px !important;
                             position: relative !important;
-                            margin: 0 !important;
+                            margin: 0 auto !important;
                             padding: 0 !important;
                             display: block !important;
                             box-sizing: border-box !important;
@@ -338,6 +342,9 @@
         position: relative;
         overflow: hidden;
         contain: layout style paint;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .widget-wrapper-alt elevenlabs-convai {
@@ -347,6 +354,11 @@
         right: auto !important;
         bottom: auto !important;
         transform: none !important;
+        min-height: 400px !important;
+        height: 400px !important;
+        width: 400px !important;
+        max-width: 400px !important;
+        max-height: 400px !important;
     }
     </style>
 </body>
